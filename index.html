@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OPK - Obliczanie punktów końcowych</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+
+<body>
+    <p id="wart">Łączna liczba punktów: 100</p>
+    <div id="for200">
+        <input type="button" value="Wczytaj plik JSON" onclick="loadJSON()">
+    </div>
+
+    <div id="boxed">
+
+    </div>
+
+
+
+    <script>
+        function loadJSON() {
+            let genb = document.getElementById("boxed");
+            let inb = document.getElementById("for200");
+            let optionstringneg = "";
+            let optionstringpos = "";
+
+
+            for (let i = 1; i < obj.kary.length; i++) {
+                optionstringneg += '<option value="' + obj.kary[i].value + '">' + obj.kary[i].nazwa + '</option>';
+            }
+            for (let i = 1; i < obj.plusy.length; i++) {
+                optionstringpos += '<option value="' + obj.plusy[i].value + '">' + obj.plusy[i].nazwa + '</option>';
+            }
+            genb.innerHTML = '<select name="huh" id="bruh">' + optionstringneg;
+            genb.innerHTML += '<select name="huh2" id="bruh2">' + optionstringpos;
+            inb.innerHTML = '<input type="button" value="Wczytaj plik JSON" onclick="loadJSON()"><br> <input type="button" value="Kliknij by dodac minusowe punkty" onclick="rmvalue()"> <input type="button" value="Kliknij by dodac dodatnie punkty" onclick="addvalue()">';
+
+        }
+
+        let wartosckoncowa = 100;
+
+        function rmvalue() {
+            let warto = document.getElementById("wart")
+            let drop = document.getElementById("bruh")
+            wartosckoncowa -= parseInt(drop.value);
+            warto.innerHTML = 'Łączna liczba punktów: ' + wartosckoncowa;
+
+        }
+        function addvalue() {
+            let warto = document.getElementById("wart")
+            let drop = document.getElementById("bruh2")
+            wartosckoncowa -= parseInt(drop.value);
+            warto.innerHTML = 'Łączna liczba punktów: ' + wartosckoncowa;
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>
